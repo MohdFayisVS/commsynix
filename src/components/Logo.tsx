@@ -1,16 +1,16 @@
 import { Link } from "@tanstack/react-router";
+import logo from "@/assets/commsynix-logo.png";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link to="/" className={`flex items-center gap-2.5 group ${className}`}>
-      <span className="relative inline-flex h-8 w-8 items-center justify-center">
-        <span className="absolute inset-0 rounded-sm border border-primary/60 group-hover:rotate-45 transition-transform duration-500" />
-        <span className="absolute inset-1.5 rounded-sm bg-primary/20 blur-[2px]" />
-        <span className="relative h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_12px_var(--cyan-glow)]" />
-      </span>
-      <span className="font-display text-base font-bold uppercase tracking-[0.28em] text-foreground">
-        Comm<span className="text-gradient">synix</span>
-      </span>
+    <Link to="/" className={`flex items-center group ${className}`} aria-label="Commsynix">
+      <img
+        src={logo}
+        alt="Commsynix"
+        width={750}
+        height={290}
+        className="h-9 md:h-10 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+      />
     </Link>
   );
 }
