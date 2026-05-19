@@ -13,12 +13,12 @@ import { ArrowUpRight } from "lucide-react";
 const filters = ["All", "AV", "ELV", "Networking", "Automation", "Smart Buildings"] as const;
 
 const projects = [
-  { img: p1, t: "Mission Command Center", c: "AV", loc: "Bengaluru" },
-  { img: p2, t: "Executive Boardroom", c: "AV", loc: "Dubai" },
-  { img: p3, t: "Edge Data Facility", c: "Networking", loc: "Cochin" },
-  { img: p4, t: "Residential Automation", c: "Automation", loc: "Palakkad" },
-  { img: p1, t: "Security Operations", c: "ELV", loc: "Riyadh" },
-  { img: p2, t: "Smart Campus", c: "Smart Buildings", loc: "Abu Dhabi" },
+  { img: p1, t: "Mission Command Center", c: "AV" },
+  { img: p2, t: "Executive Boardroom", c: "AV" },
+  { img: p3, t: "Edge Data Facility", c: "Networking" },
+  { img: p4, t: "Residential Automation", c: "Automation" },
+  { img: p1, t: "Security Operations", c: "ELV" },
+  { img: p2, t: "Smart Campus", c: "Smart Buildings" },
 ];
 
 export const Route = createFileRoute("/portfolio")({
