@@ -34,7 +34,7 @@ export function SiteFooter() {
           <h4 className="text-xs uppercase tracking-[0.25em] text-primary mb-4">Contact</h4>
           <p className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 text-primary" /> 1/290 Silent Valley, Mukkali PO, Mannarkkad, Palakkad</p>
           <p className="flex items-center gap-2"><Mail size={14} className="text-primary" /> hello@commsynix.com</p>
-          <p className="flex items-center gap-2"><Phone size={14} className="text-primary" /> +91 00000 00000</p>
+          <p className="flex items-center gap-2"><Phone size={14} className="text-primary" /> +91 88840 08432</p>
         </div>
       </div>
       <div className="border-t border-border/60 py-5 text-center text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
