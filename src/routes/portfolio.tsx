@@ -81,7 +81,6 @@ function PortfolioPage() {
                   </div>
                   <div>
                     <div className="font-heading text-xl uppercase tracking-wide">{p.t}</div>
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-1">{p.loc}</div>
                   </div>
                 </div>
               </div>
