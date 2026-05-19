@@ -65,7 +65,7 @@ function ContactPage() {
             {[
               { icon: MapPin, l: "Address", v: "1/290 Silent Valley, Mukkali PO, Mannarkkad, Palakkad" },
               { icon: Mail, l: "Email", v: "hello@commsynix.com" },
-              { icon: Phone, l: "Phone", v: "+91 00000 00000" },
+              { icon: Phone, l: "Phone", v: "+91 88840 08432" },
               { icon: MessageCircle, l: "WhatsApp", v: "Chat with our team" },
             ].map((c) => (
               <div key={c.l} className="glass rounded-sm p-5 flex items-start gap-4">
