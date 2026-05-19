@@ -76,10 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Future-ready technology integration for intelligent environments: IT, ELV, AV, automation, AI, networking and smart buildings." },
       { name: "author", content: "Commsynix" },
       { property: "og:title", content: "COMMSYNIX — Intelligent Systems. Seamlessly Integrated." },
-      { property: "og:description", content: "Premium technology integration: IT, ELV, AV, smart automation, AI, networking, smart buildings & IoT." },
+      { property: "og:description", content: "Future-ready technology integration for intelligent environments: IT, ELV, AV, automation, AI, networking and smart buildings." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "COMMSYNIX — Intelligent Systems. Seamlessly Integrated." },
+      { name: "twitter:description", content: "Future-ready technology integration for intelligent environments: IT, ELV, AV, automation, AI, networking and smart buildings." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/02e640f0-440f-4b5d-b211-7c51ddc055b8/id-preview-0f9a6c74--6a22ac8a-2e0f-4a2f-9305-feddd91716e6.lovable.app-1779214712085.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/02e640f0-440f-4b5d-b211-7c51ddc055b8/id-preview-0f9a6c74--6a22ac8a-2e0f-4a2f-9305-feddd91716e6.lovable.app-1779214712085.png" },
     ],
     links: [
       {
