@@ -63,7 +63,8 @@ function ContactPage() {
         <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: MapPin, l: "Address", v: "1/290 Silent Valley, Mukkali PO, Mannarkkad, Palakkad" },
+              { icon: MapPin, l: "India Office", v: "1/290 Silent Valley, Mukkali PO, Mannarkkad, Palakkad" },
+              { icon: MapPin, l: "UAE Office", v: "114 Al Tiqani Street, Central District, Al Ain, Abu Dhabi" },
               { icon: Mail, l: "Email", v: "hello@commsynix.com" },
               { icon: Phone, l: "Phone", v: "+91 88840 08432" },
               { icon: MessageCircle, l: "WhatsApp", v: "Chat with our team" },
