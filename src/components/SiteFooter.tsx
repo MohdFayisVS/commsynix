@@ -40,7 +40,8 @@ export function SiteFooter() {
 
         <div className="space-y-3 text-sm text-muted-foreground">
           <h4 className="text-xs uppercase tracking-[0.25em] text-primary mb-4">Contact</h4>
-          <p className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 text-primary" /> 1/290 Silent Valley, Mukkali PO, Mannarkkad, Palakkad</p>
+          <p className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 text-primary" /> <span><span className="block text-[10px] uppercase tracking-[0.25em] text-primary/80 mb-0.5">India</span>1/290 Silent Valley, Mukkali PO, Mannarkkad, Palakkad</span></p>
+          <p className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 text-primary" /> <span><span className="block text-[10px] uppercase tracking-[0.25em] text-primary/80 mb-0.5">UAE</span>114 Al Tiqani Street, Central District, Al Ain, Abu Dhabi</span></p>
           <p className="flex items-center gap-2"><Mail size={14} className="text-primary" /> hello@commsynix.com</p>
           <p className="flex items-center gap-2"><Phone size={14} className="text-primary" /> +91 88840 08432</p>
         </div>
