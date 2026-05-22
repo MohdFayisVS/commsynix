@@ -175,3 +175,45 @@
 .animate-fade-up { animation: fade-up 0.8s ease-out both; }
 .animate-float { animation: float-pulse 4s ease-in-out infinite; }
 .grid-bg-animated { animation: grid-drift 18s linear infinite; }
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 800; }
+  to { stroke-dashoffset: 0; }
+}
+.animate-draw-line {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: draw-line 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 3px oklch(0.78 0.12 215 / 0.4)); }
+  50% { filter: drop-shadow(0 0 12px oklch(0.78 0.12 215 / 0.95)); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes type-blink {
+  50% { border-color: transparent; }
+}
+.terminal-cursor {
+  border-right: 2px solid var(--primary);
+  animation: type-blink 0.8s step-end infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { ArrowRight, Mic, Sparkles, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-network.jpg";
 import portfolio1 from "@/assets/portfolio-1.jpg";
@@ -9,6 +10,10 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { GridBackdrop } from "@/components/GridBackdrop";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceGrid } from "@/components/ServiceGrid";
+import { HudPanel } from "@/components/HudPanel";
+import { IntegrationSimulator } from "@/components/IntegrationSimulator";
+import { VoiceEnquiryDialog } from "@/components/VoiceEnquiryDialog";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,6 +26,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [voiceOpen, setVoiceOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -64,9 +71,12 @@ function Index() {
               <Link to="/contact" className="btn-ghost">
                 Request Consultation
               </Link>
-              <Link to="/contact" className="btn-ghost">
-                <Mic size={14} /> Voice Enquiry
-              </Link>
+              <button
+                onClick={() => setVoiceOpen(true)}
+                className="btn-ghost cursor-pointer"
+              >
+                <Mic size={14} className="text-primary" /> Voice Enquiry
+              </button>
             </div>
 
             <div className="mt-16 grid grid-cols-3 gap-px bg-border/60 max-w-lg corner-frame">
@@ -83,45 +93,9 @@ function Index() {
             </div>
           </div>
 
-          {/* HUD panel */}
-          <div className="hidden lg:block lg:col-span-5 animate-fade-up [animation-delay:200ms]">
-            <div className="relative glass-strong rounded-sm p-6 corner-frame">
-              <div className="flex items-center justify-between mb-5">
-                <span className="font-display text-[10px] tracking-[0.3em] text-primary">SYS · LIVE</span>
-                <div className="flex gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary animate-float" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary/60 animate-float [animation-delay:.4s]" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary/40 animate-float [animation-delay:.8s]" />
-                </div>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { l: "AV Integration", v: 96 },
-                  { l: "Network Mesh", v: 88 },
-                  { l: "Automation Bus", v: 74 },
-                  { l: "AI Pipeline", v: 62 },
-                ].map((row) => (
-                  <div key={row.l}>
-                    <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5">
-                      <span>{row.l}</span>
-                      <span className="text-primary">{row.v}%</span>
-                    </div>
-                    <div className="h-1 bg-border/80 overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-primary to-secondary"
-                        style={{ width: `${row.v}%`, boxShadow: "0 0 12px var(--cyan-glow)" }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 pt-5 border-t border-border/60 grid grid-cols-2 gap-3 text-[11px] uppercase tracking-[0.22em]">
-                <div className="text-muted-foreground">Uptime <span className="text-foreground ml-1">99.98%</span></div>
-                <div className="text-muted-foreground">Latency <span className="text-foreground ml-1">4ms</span></div>
-                <div className="text-muted-foreground">Nodes <span className="text-foreground ml-1">2,184</span></div>
-                <div className="text-muted-foreground">Zones <span className="text-foreground ml-1">38</span></div>
-              </div>
-            </div>
+          {/* DYNAMIC TELEMETRY HUD PANEL */}
+          <div className="hidden lg:block lg:col-span-5">
+            <HudPanel />
           </div>
         </div>
       </section>
@@ -173,6 +147,26 @@ function Index() {
             <Link to="/services" className="btn-ghost !text-[11px]">All services <ArrowRight size={14} /></Link>
           </div>
           <ServiceGrid />
+        </div>
+      </section>
+
+      {/* INTERACTIVE NETWORK SIMULATOR */}
+      <section className="relative py-32 border-b border-border/60">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="flex items-center gap-3 justify-center">
+              <span className="h-px w-8 bg-primary" />
+              <span className="text-[11px] uppercase tracking-[0.35em] text-primary font-display">System Sandbox</span>
+              <span className="h-px w-8 bg-primary" />
+            </div>
+            <h2 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold uppercase tracking-tight leading-[1.05] text-foreground">
+              Orchestrate your <span className="text-gradient">environment</span>
+            </h2>
+            <p className="mt-5 text-base text-muted-foreground leading-relaxed">
+              Toggle technology disciplines on the digital grid to visualize live connection mesh connections, protocols, and efficiency scores.
+            </p>
+          </div>
+          <IntegrationSimulator />
         </div>
       </section>
 
@@ -228,6 +222,15 @@ function Index() {
       </section>
 
       <SiteFooter />
+
+      <VoiceEnquiryDialog
+        isOpen={voiceOpen}
+        onClose={() => setVoiceOpen(false)}
+        onTranscribeComplete={(text) => {
+          navigator.clipboard.writeText(text);
+          toast.success("Voice enquiry transcription copied to clipboard! You can paste it into the contact form.");
+        }}
+      />
     </div>
   );
 }

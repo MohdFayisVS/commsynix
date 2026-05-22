@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { z } from "zod";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SectionHeading } from "@/components/SectionHeading";
 import { GridBackdrop } from "@/components/GridBackdrop";
 import { Mail, Phone, MapPin, MessageCircle, Mic, Send } from "lucide-react";
+import { VoiceEnquiryDialog } from "@/components/VoiceEnquiryDialog";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -28,6 +29,20 @@ const schema = z.object({
 function ContactPage() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [message, setMessage] = useState("");
+  const [voiceOpen, setVoiceOpen] = useState(false);
+
+  // Listen for transcriptions from header voice desk triggers
+  useEffect(() => {
+    const handleTranscribe = (e: Event) => {
+      const text = (e as CustomEvent).detail;
+      if (text) {
+        setMessage(text);
+      }
+    };
+    window.addEventListener("voice-transcribe", handleTranscribe);
+    return () => window.removeEventListener("voice-transcribe", handleTranscribe);
+  }, []);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,7 +51,7 @@ function ContactPage() {
     const parsed = schema.safeParse({
       name: fd.get("name"),
       email: fd.get("email"),
-      message: fd.get("message"),
+      message: message, // Use the state message
     });
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? "Invalid input");
@@ -80,7 +95,11 @@ function ContactPage() {
                 </div>
               </div>
             ))}
-            <button className="glass rounded-sm p-5 w-full flex items-center gap-4 hover:border-primary/60 transition-colors text-left">
+            
+            <button
+              onClick={() => setVoiceOpen(true)}
+              className="glass rounded-sm p-5 w-full flex items-center gap-4 hover:border-primary/60 transition-colors text-left cursor-pointer"
+            >
               <span className="h-10 w-10 grid place-items-center rounded-sm bg-primary/15 text-primary border border-primary/30 animate-float">
                 <Mic size={16} />
               </span>
@@ -102,6 +121,7 @@ function ContactPage() {
                 placeholder="Your full name"
               />
             </div>
+            
             <div>
               <label className="text-[10px] uppercase tracking-[0.3em] text-primary">Email</label>
               <input
@@ -113,10 +133,13 @@ function ContactPage() {
                 placeholder="you@company.com"
               />
             </div>
+            
             <div>
               <label className="text-[10px] uppercase tracking-[0.3em] text-primary">Project Brief</label>
               <textarea
                 name="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 rows={5}
                 maxLength={1000}
                 required
@@ -124,18 +147,29 @@ function ContactPage() {
                 placeholder="Tell us about your environment, scope and timeline…"
               />
             </div>
+            
             {error && <p className="text-xs text-destructive uppercase tracking-[0.2em]">{error}</p>}
+            
             {sent ? (
               <p className="text-sm text-primary uppercase tracking-[0.2em]">Enquiry received — we'll be in touch shortly.</p>
             ) : (
-              <button type="submit" className="btn-hero">
+              <button type="submit" className="btn-hero cursor-pointer">
                 Send Enquiry <Send size={14} />
               </button>
             )}
           </form>
         </div>
       </section>
+      
       <SiteFooter />
+
+      <VoiceEnquiryDialog
+        isOpen={voiceOpen}
+        onClose={() => setVoiceOpen(false)}
+        onTranscribeComplete={(text) => {
+          setMessage(text);
+        }}
+      />
     </div>
   );
 }
