@@ -60,13 +60,13 @@ export function SiteHeader() {
           </button>
         </div>
         {open && (
-          <div className="md:hidden pb-4 flex flex-col gap-1 animate-fade-up">
+          <div className="md:hidden mt-2 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 flex flex-col gap-1 animate-fade-up bg-background border-t border-b border-border/60 shadow-elev">
             {nav.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-primary border-b border-border/40"
+                className="px-3 py-3 text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-primary border-b border-border/40 last:border-b-0"
                 activeProps={{ className: "text-primary" }}
                 activeOptions={{ exact: n.to === "/" }}
               >
