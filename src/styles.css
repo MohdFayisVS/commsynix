@@ -5,34 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
-  @font-face {
-    font-family: "Orbitron";
-    font-style: normal;
-    font-weight: 400 900;
-    font-display: swap;
-    src: url("https://fonts.gstatic.com/s/orbitron/v34/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWg1.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: "Rajdhani";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("https://fonts.gstatic.com/s/rajdhani/v15/LDIxapCSOBg7S-QT7q4AOeekWPrP.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: "Rajdhani";
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url("https://fonts.gstatic.com/s/rajdhani/v15/LDI2apCSOBg7S-QT7pasEcOsXPrP.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 300 700;
-    font-display: swap;
-    src: url("https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50ojIw2boKoduKmMEVuLyfMZg.woff2") format("woff2");
-  }
+  @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Michroma&family=JetBrains+Mono:wght@400;500;600&family=Exo+2:wght@300;400;500;600;700&display=swap");
 }
 
 @theme inline {
@@ -61,9 +34,10 @@
   --color-ring: var(--ring);
   --color-cyan-glow: var(--cyan-glow);
   --color-slate-mist: var(--slate-mist);
-  --font-display: "Orbitron", "Inter", sans-serif;
-  --font-heading: "Rajdhani", "Inter", sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Michroma", "Orbitron", sans-serif;
+  --font-heading: "Chakra Petch", "Rajdhani", sans-serif;
+  --font-body: "Exo 2", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 :root {
