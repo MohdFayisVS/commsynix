@@ -34,9 +34,10 @@
   --color-ring: var(--ring);
   --color-cyan-glow: var(--cyan-glow);
   --color-slate-mist: var(--slate-mist);
-  --font-display: "Orbitron", "Inter", sans-serif;
-  --font-heading: "Rajdhani", "Inter", sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Michroma", "Orbitron", sans-serif;
+  --font-heading: "Chakra Petch", "Rajdhani", sans-serif;
+  --font-body: "Exo 2", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 :root {
