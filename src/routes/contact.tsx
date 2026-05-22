@@ -66,7 +66,8 @@ function ContactPage() {
               { icon: MapPin, l: "India Office", v: "1/290 Silent Valley, Mukkali PO, Mannarkkad, Palakkad" },
               { icon: MapPin, l: "UAE Office", v: "114 Al Tiqani Street, Central District, Al Ain, Abu Dhabi" },
               { icon: Mail, l: "Email", v: "hello@commsynix.com" },
-              { icon: Phone, l: "Phone", v: "+91 88840 08432" },
+              { icon: Phone, l: "India Phone", v: "+91 88840 08432" },
+              { icon: Phone, l: "UAE Phone", v: "+971 52 168 7833" },
               { icon: MessageCircle, l: "WhatsApp", v: "Chat with our team" },
             ].map((c) => (
               <div key={c.l} className="glass rounded-sm p-5 flex items-start gap-4">
