@@ -1,13 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
-import { BrandMark } from "./BrandMark";
+import icon from "@/assets/commsynix-icon.png";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export function SiteFooter() {
   return (
     <footer className="relative mt-32 border-t border-border/60 overflow-hidden">
       <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-      <BrandMark size={360} className="pointer-events-none absolute -left-20 -bottom-24 text-primary/[0.05]" />
+      <img
+        src={icon}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute -right-16 -bottom-16 w-72 opacity-[0.04] select-none"
+      />
+
       <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2 space-y-5">
           <Logo />
