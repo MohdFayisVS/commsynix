@@ -43,7 +43,8 @@ export function SiteFooter() {
           <p className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 text-primary" /> <span><span className="block text-[10px] uppercase tracking-[0.25em] text-primary/80 mb-0.5">India</span>1/290 Silent Valley, Mukkali PO, Mannarkkad, Palakkad</span></p>
           <p className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 text-primary" /> <span><span className="block text-[10px] uppercase tracking-[0.25em] text-primary/80 mb-0.5">UAE</span>114 Al Tiqani Street, Central District, Al Ain, Abu Dhabi</span></p>
           <p className="flex items-center gap-2"><Mail size={14} className="text-primary" /> hello@commsynix.com</p>
-          <p className="flex items-center gap-2"><Phone size={14} className="text-primary" /> +91 88840 08432</p>
+          <p className="flex items-center gap-2"><Phone size={14} className="text-primary" /> <span className="text-[10px] uppercase tracking-[0.25em] text-primary/80">IN</span> +91 88840 08432</p>
+          <p className="flex items-center gap-2"><Phone size={14} className="text-primary" /> <span className="text-[10px] uppercase tracking-[0.25em] text-primary/80">UAE</span> +971 52 168 7833</p>
         </div>
       </div>
       <div className="border-t border-border/60 py-5 text-center text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
