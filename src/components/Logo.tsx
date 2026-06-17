@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/commsynix-logo-white.png";
+import logo from "@/assets/commsynix-logo-dark.jpg";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
@@ -7,9 +7,9 @@ export function Logo({ className = "" }: { className?: string }) {
       <img
         src={logo}
         alt="Commsynix"
-        width={647}
-        height={121}
-        className="h-7 md:h-8 w-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity"
+        width={1000}
+        height={1000}
+        className="h-8 md:h-10 w-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity mix-blend-screen"
       />
     </Link>
   );
