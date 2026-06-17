@@ -10,20 +10,27 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
+import { Route as QuoteRouteImport } from './routes/quote'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AdminPortalLoginRouteImport } from './routes/admin-portal-login'
+import { Route as AdminPortalRouteImport } from './routes/admin-portal'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesSmartAutomationRouteImport } from './routes/services/smart-automation'
+import { Route as ServicesItInfrastructureRouteImport } from './routes/services/it-infrastructure'
+import { Route as ServicesElvSystemsRouteImport } from './routes/services/elv-systems'
+import { Route as ServicesAdvancedAvRouteImport } from './routes/services/advanced-av'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
+const QuoteRoute = QuoteRouteImport.update({
+  id: '/quote',
+  path: '/quote',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioRoute = PortfolioRouteImport.update({
@@ -36,6 +43,16 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminPortalLoginRoute = AdminPortalLoginRouteImport.update({
+  id: '/admin-portal-login',
+  path: '/admin-portal-login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPortalRoute = AdminPortalRouteImport.update({
+  id: '/admin-portal',
+  path: '/admin-portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -46,60 +63,141 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSmartAutomationRoute = ServicesSmartAutomationRouteImport.update({
+  id: '/services/smart-automation',
+  path: '/services/smart-automation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesItInfrastructureRoute =
+  ServicesItInfrastructureRouteImport.update({
+    id: '/services/it-infrastructure',
+    path: '/services/it-infrastructure',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesElvSystemsRoute = ServicesElvSystemsRouteImport.update({
+  id: '/services/elv-systems',
+  path: '/services/elv-systems',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesAdvancedAvRoute = ServicesAdvancedAvRouteImport.update({
+  id: '/services/advanced-av',
+  path: '/services/advanced-av',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin-portal': typeof AdminPortalRoute
+  '/admin-portal-login': typeof AdminPortalLoginRoute
   '/contact': typeof ContactRoute
   '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRoute
+  '/quote': typeof QuoteRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/advanced-av': typeof ServicesAdvancedAvRoute
+  '/services/elv-systems': typeof ServicesElvSystemsRoute
+  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
+  '/services/smart-automation': typeof ServicesSmartAutomationRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin-portal': typeof AdminPortalRoute
+  '/admin-portal-login': typeof AdminPortalLoginRoute
   '/contact': typeof ContactRoute
   '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRoute
+  '/quote': typeof QuoteRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/advanced-av': typeof ServicesAdvancedAvRoute
+  '/services/elv-systems': typeof ServicesElvSystemsRoute
+  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
+  '/services/smart-automation': typeof ServicesSmartAutomationRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin-portal': typeof AdminPortalRoute
+  '/admin-portal-login': typeof AdminPortalLoginRoute
   '/contact': typeof ContactRoute
   '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRoute
+  '/quote': typeof QuoteRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/advanced-av': typeof ServicesAdvancedAvRoute
+  '/services/elv-systems': typeof ServicesElvSystemsRoute
+  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
+  '/services/smart-automation': typeof ServicesSmartAutomationRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/admin-portal'
+    | '/admin-portal-login'
     | '/contact'
     | '/portfolio'
-    | '/services'
+    | '/quote'
     | '/sitemap.xml'
+    | '/services/advanced-av'
+    | '/services/elv-systems'
+    | '/services/it-infrastructure'
+    | '/services/smart-automation'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/portfolio' | '/services' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/about'
+    | '/admin-portal'
+    | '/admin-portal-login'
+    | '/contact'
+    | '/portfolio'
+    | '/quote'
+    | '/sitemap.xml'
+    | '/services/advanced-av'
+    | '/services/elv-systems'
+    | '/services/it-infrastructure'
+    | '/services/smart-automation'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/admin-portal'
+    | '/admin-portal-login'
     | '/contact'
     | '/portfolio'
-    | '/services'
+    | '/quote'
     | '/sitemap.xml'
+    | '/services/advanced-av'
+    | '/services/elv-systems'
+    | '/services/it-infrastructure'
+    | '/services/smart-automation'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminPortalRoute: typeof AdminPortalRoute
+  AdminPortalLoginRoute: typeof AdminPortalLoginRoute
   ContactRoute: typeof ContactRoute
   PortfolioRoute: typeof PortfolioRoute
-  ServicesRoute: typeof ServicesRoute
+  QuoteRoute: typeof QuoteRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ServicesAdvancedAvRoute: typeof ServicesAdvancedAvRoute
+  ServicesElvSystemsRoute: typeof ServicesElvSystemsRoute
+  ServicesItInfrastructureRoute: typeof ServicesItInfrastructureRoute
+  ServicesSmartAutomationRoute: typeof ServicesSmartAutomationRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -111,11 +209,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
+    '/quote': {
+      id: '/quote'
+      path: '/quote'
+      fullPath: '/quote'
+      preLoaderRoute: typeof QuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio': {
@@ -132,6 +230,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin-portal-login': {
+      id: '/admin-portal-login'
+      path: '/admin-portal-login'
+      fullPath: '/admin-portal-login'
+      preLoaderRoute: typeof AdminPortalLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-portal': {
+      id: '/admin-portal'
+      path: '/admin-portal'
+      fullPath: '/admin-portal'
+      preLoaderRoute: typeof AdminPortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -146,16 +258,58 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/smart-automation': {
+      id: '/services/smart-automation'
+      path: '/services/smart-automation'
+      fullPath: '/services/smart-automation'
+      preLoaderRoute: typeof ServicesSmartAutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/it-infrastructure': {
+      id: '/services/it-infrastructure'
+      path: '/services/it-infrastructure'
+      fullPath: '/services/it-infrastructure'
+      preLoaderRoute: typeof ServicesItInfrastructureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/elv-systems': {
+      id: '/services/elv-systems'
+      path: '/services/elv-systems'
+      fullPath: '/services/elv-systems'
+      preLoaderRoute: typeof ServicesElvSystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/advanced-av': {
+      id: '/services/advanced-av'
+      path: '/services/advanced-av'
+      fullPath: '/services/advanced-av'
+      preLoaderRoute: typeof ServicesAdvancedAvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminPortalRoute: AdminPortalRoute,
+  AdminPortalLoginRoute: AdminPortalLoginRoute,
   ContactRoute: ContactRoute,
   PortfolioRoute: PortfolioRoute,
-  ServicesRoute: ServicesRoute,
+  QuoteRoute: QuoteRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ServicesAdvancedAvRoute: ServicesAdvancedAvRoute,
+  ServicesElvSystemsRoute: ServicesElvSystemsRoute,
+  ServicesItInfrastructureRoute: ServicesItInfrastructureRoute,
+  ServicesSmartAutomationRoute: ServicesSmartAutomationRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

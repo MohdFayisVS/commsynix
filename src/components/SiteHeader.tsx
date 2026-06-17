@@ -6,8 +6,8 @@ import { VoiceEnquiryDialog } from "./VoiceEnquiryDialog";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
+  { to: "/about", label: "About" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -65,22 +65,22 @@ export function SiteHeader() {
             <div className="hidden md:flex items-center gap-3">
               <button
                 onClick={() => setVoiceOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors border border-border/40 hover:border-primary/40 rounded-sm bg-background/20"
+                className="flex items-center gap-1.5 px-3 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors border border-border/40 hover:border-primary/40 rounded-sm bg-background/20 cursor-pointer"
                 aria-label="Voice Enquiry"
               >
                 <Mic size={12} className="text-primary animate-float" />
                 <span>Voice Desk</span>
               </button>
               
-              <Link to="/contact" className="btn-ghost !py-2.5 !px-5 !text-[11px]">
-                Consult
+              <Link to="/quote" className="btn-hero !py-2 !px-4 !text-[10px]">
+                Get a Quote
               </Link>
             </div>
 
             <div className="flex md:hidden items-center gap-3">
               <button
                 onClick={() => setVoiceOpen(true)}
-                className="p-2 text-primary"
+                className="p-2 text-primary cursor-pointer"
                 aria-label="Voice Enquiry"
               >
                 <Mic size={18} className="animate-float" />
@@ -89,7 +89,7 @@ export function SiteHeader() {
               <button
                 aria-label="Toggle menu"
                 onClick={() => setOpen((v) => !v)}
-                className="p-2 text-foreground"
+                className="p-2 text-foreground cursor-pointer"
               >
                 {open ? <X size={20} /> : <Menu size={20} />}
               </button>
@@ -110,12 +110,19 @@ export function SiteHeader() {
                   {n.label}
                 </Link>
               ))}
+              <Link
+                to="/quote"
+                onClick={() => setOpen(false)}
+                className="px-3 py-3 text-sm uppercase tracking-[0.2em] text-primary border-b border-border/40 font-semibold"
+              >
+                Get a Quote
+              </Link>
               <button
                 onClick={() => {
                   setOpen(false);
                   setVoiceOpen(true);
                 }}
-                className="px-3 py-3 text-sm uppercase tracking-[0.2em] text-primary flex items-center gap-2 text-left"
+                className="px-3 py-3 text-sm uppercase tracking-[0.2em] text-primary flex items-center gap-2 text-left cursor-pointer"
               >
                 <Mic size={14} className="animate-float" /> Voice Enquiry Desk
               </button>

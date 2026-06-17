@@ -7,14 +7,13 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { GridBackdrop } from "@/components/GridBackdrop";
 import { Mail, Phone, MapPin, MessageCircle, Mic, Send } from "lucide-react";
 import { VoiceEnquiryDialog } from "@/components/VoiceEnquiryDialog";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Commsynix" },
-      { name: "description", content: "Request a consultation, send a voice enquiry, or connect with our integration team." },
-      { property: "og:title", content: "Contact — Commsynix" },
-      { property: "og:description", content: "Let's architect your intelligent environment." },
+      { title: "Contact Systems Integration Desk — COMMSYNIX" },
+      { name: "description", content: "Reach our ELV, AV, and networking engineers in India (Kerala, Tamil Nadu) and the Middle East (Dubai, Abu Dhabi)." },
     ],
   }),
   component: ContactPage,
@@ -23,6 +22,7 @@ export const Route = createFileRoute("/contact")({
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
+  phone: z.string().trim().min(5, "Valid phone number is required").max(30),
   message: z.string().trim().min(5, "Tell us a bit more").max(1000),
 });
 
@@ -30,6 +30,7 @@ function ContactPage() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState("");
+  const [phoneInput, setPhoneInput] = useState("");
   const [voiceOpen, setVoiceOpen] = useState(false);
 
   // Listen for transcriptions from header voice desk triggers
@@ -51,13 +52,31 @@ function ContactPage() {
     const parsed = schema.safeParse({
       name: fd.get("name"),
       email: fd.get("email"),
+      phone: fd.get("phone"),
       message: message, // Use the state message
     });
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? "Invalid input");
       return;
     }
+
+    const payload = {
+      id: "lead-" + Date.now(),
+      type: "contact",
+      name: parsed.data.name,
+      email: parsed.data.email,
+      phone: parsed.data.phone,
+      description: parsed.data.message,
+      date: new Date().toISOString(),
+      status: "new",
+    };
+
+    // Save lead to localStorage
+    const existing = JSON.parse(localStorage.getItem("commsynix_leads") || "[]");
+    localStorage.setItem("commsynix_leads", JSON.stringify([...existing, payload]));
+
     setSent(true);
+    toast.success("Enquiry logged. An engineer will respond shortly.");
   };
 
   return (
@@ -67,71 +86,89 @@ function ContactPage() {
         <GridBackdrop />
         <div className="relative mx-auto max-w-5xl px-6">
           <SectionHeading
-            eyebrow="Contact"
+            eyebrow="Regional Contact Hubs"
             title={<>Let's architect your <span className="text-gradient">intelligent environment.</span></>}
-            description="Reach our integration desk. We'll respond within one business day."
+            description="Connect with our integration desk. We support enterprise tenders and smart residential environments across India and the Gulf."
           />
         </div>
       </section>
 
       <section className="pb-32">
         <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-5 gap-8">
+          {/* REGIONAL CONTACT INFO */}
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: MapPin, l: "India Office", v: "1/290 Silent Valley, Mukkali PO, Mannarkkad, Palakkad" },
-              { icon: MapPin, l: "UAE Office", v: "114 Al Tiqani Street, Central District, Al Ain, Abu Dhabi" },
-              { icon: Mail, l: "Email", v: "hello@commsynix.com" },
-              { icon: Phone, l: "India Phone", v: "+91 88840 08432" },
-              { icon: Phone, l: "UAE Phone", v: "+971 52 168 7833" },
-              { icon: MessageCircle, l: "WhatsApp", v: "Chat with our team" },
+              { icon: MapPin, l: "UAE Operations", v: "Office 114, Al Tiqani Street, Central District, Al Ain, Abu Dhabi" },
+              { icon: MapPin, l: "India Operations (Kerala)", v: "1/290 Silent Valley, Mukkali PO, Mannarkkad, Cochin" },
+              { icon: MapPin, l: "India Operations (Tamil Nadu)", v: "Level 4, Techno-Hub, OMR Road, Chennai" },
+              { icon: Mail, l: "Regional Desk Email", v: "hello@commsynix.com" },
+              { icon: Phone, l: "UAE Support", v: "+971 52 168 7833" },
+              { icon: Phone, l: "India Support", v: "+91 88840 08432" },
             ].map((c) => (
               <div key={c.l} className="glass rounded-sm p-5 flex items-start gap-4">
-                <span className="h-10 w-10 grid place-items-center rounded-sm bg-primary/10 text-primary border border-primary/20">
+                <span className="h-10 w-10 grid place-items-center rounded-sm bg-primary/10 text-primary border border-primary/20 shrink-0">
                   <c.icon size={16} />
                 </span>
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.3em] text-primary">{c.l}</div>
-                  <div className="text-sm text-foreground mt-1">{c.v}</div>
+                  <div className="text-sm text-foreground mt-1 leading-relaxed">{c.v}</div>
                 </div>
               </div>
             ))}
             
             <button
+              type="button"
               onClick={() => setVoiceOpen(true)}
               className="glass rounded-sm p-5 w-full flex items-center gap-4 hover:border-primary/60 transition-colors text-left cursor-pointer"
             >
-              <span className="h-10 w-10 grid place-items-center rounded-sm bg-primary/15 text-primary border border-primary/30 animate-float">
+              <span className="h-10 w-10 grid place-items-center rounded-sm bg-primary/15 text-primary border border-primary/30 animate-float shrink-0">
                 <Mic size={16} />
               </span>
               <div>
-                <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Voice Enquiry</div>
-                <div className="text-sm text-foreground mt-1">Send a voice note to our team</div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Voice Desk Enquiry</div>
+                <div className="text-sm text-foreground mt-1">Dictate your environment specifications</div>
               </div>
             </button>
           </div>
 
+          {/* CONTACT FORM */}
           <form onSubmit={onSubmit} className="lg:col-span-3 glass-strong rounded-sm p-8 md:p-10 corner-frame space-y-5">
             <div>
-              <label className="text-[10px] uppercase tracking-[0.3em] text-primary">Name</label>
+              <label className="text-[10px] uppercase tracking-[0.3em] text-primary">Full Name</label>
               <input
                 name="name"
                 maxLength={100}
                 required
-                className="mt-2 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2.5 text-foreground placeholder:text-muted-foreground/60"
-                placeholder="Your full name"
+                className="mt-2 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors"
+                placeholder="e.g. Rahul Nair"
               />
             </div>
             
-            <div>
-              <label className="text-[10px] uppercase tracking-[0.3em] text-primary">Email</label>
-              <input
-                name="email"
-                type="email"
-                maxLength={255}
-                required
-                className="mt-2 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2.5 text-foreground placeholder:text-muted-foreground/60"
-                placeholder="you@company.com"
-              />
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label className="text-[10px] uppercase tracking-[0.3em] text-primary">Corporate Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  maxLength={255}
+                  required
+                  className="mt-2 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors"
+                  placeholder="you@company.com"
+                />
+              </div>
+              <div>
+                <label className="text-[10px] uppercase tracking-[0.3em] text-primary">Phone Number</label>
+                <input
+                  name="phone"
+                  type="tel"
+                  maxLength={30}
+                  required
+                  value={phoneInput}
+                  onChange={(e) => setPhoneInput(e.target.value)}
+                  className="mt-2 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors"
+                  placeholder="e.g. +971 50 123 4567"
+                />
+              </div>
             </div>
             
             <div>
@@ -143,15 +180,17 @@ function ContactPage() {
                 rows={5}
                 maxLength={1000}
                 required
-                className="mt-2 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2.5 text-foreground placeholder:text-muted-foreground/60 resize-none"
-                placeholder="Tell us about your environment, scope and timeline…"
+                className="mt-2 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 resize-none transition-colors"
+                placeholder="Describe your ELV, AV, or structured cabling requirements..."
               />
             </div>
             
             {error && <p className="text-xs text-destructive uppercase tracking-[0.2em]">{error}</p>}
             
             {sent ? (
-              <p className="text-sm text-primary uppercase tracking-[0.2em]">Enquiry received — we'll be in touch shortly.</p>
+              <p className="text-sm text-primary uppercase tracking-[0.2em] animate-fade-up">
+                Enquiry logged in Control Console. We will connect shortly.
+              </p>
             ) : (
               <button type="submit" className="btn-hero cursor-pointer">
                 Send Enquiry <Send size={14} />
