@@ -1,15 +1,21 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/commsynix-logo-dark.jpg";
+import logo from "@/assets/commsynix-logo-transparent.png";
 
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({
+  className = "",
+  imgClassName = "h-10 md:h-12",
+}: {
+  className?: string;
+  imgClassName?: string;
+}) {
   return (
     <Link to="/" className={`flex items-center group ${className}`} aria-label="Commsynix">
       <img
         src={logo}
         alt="Commsynix"
-        width={1000}
-        height={1000}
-        className="h-8 md:h-10 w-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity mix-blend-screen"
+        width={1200}
+        height={1200}
+        className={`w-auto object-contain opacity-95 group-hover:opacity-100 transition-all duration-500 ${imgClassName}`}
       />
     </Link>
   );

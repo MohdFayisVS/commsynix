@@ -16,7 +16,7 @@ export function SiteFooter() {
 
       <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2 space-y-5">
-          <Logo />
+          <Logo imgClassName="h-12 md:h-16" />
           <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
             Intelligent synchronization of communication and technology systems.
             Engineering future-ready environments across enterprise, infrastructure

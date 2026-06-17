@@ -36,8 +36,12 @@ export function SiteHeader() {
             scrolled ? "glass-strong rounded-sm" : ""
           }`}
         >
-          <div className="flex items-center justify-between h-14">
-            <Logo />
+          <div
+            className={`flex items-center justify-between transition-all duration-500 ${
+              scrolled ? "h-12 md:h-16" : "h-16 md:h-20"
+            }`}
+          >
+            <Logo imgClassName={scrolled ? "h-8 md:h-11" : "h-10 md:h-14"} />
             <nav className="hidden md:flex items-center gap-1">
               {nav.map((n) => (
                 <Link
