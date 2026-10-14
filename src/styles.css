@@ -26,3 +26,12 @@
 @media(max-width:850px){.service-carousel{max-width:580px;min-height:345px}.sc-slide{min-height:280px}.sc-slide h3{font-size:28px}}
 @media(max-width:400px){.sc-slide{padding:25px 22px 15px}.sc-controls{padding:0 15px 18px;gap:4px}.sc-dots button{width:19px;padding:5px}.sc-buttons button{width:32px;height:32px}.sc-description{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.sc-slide,.sc-orbit-two{animation:none}.service-carousel,.sc-scene{transition:none}}
+
+/* Bold editorial carousel typography, inspired by the supplied reference. */
+.service-carousel{--sc-band:#0642b5;border-radius:8px;min-height:420px;background:#071525}
+.sc-security{--sc-band:#805413}.sc-av{--sc-band:#972058}.sc-lighting{--sc-band:#76601e}.sc-mobility{--sc-band:#09664e}.sc-integration{--sc-band:#304e95}.sc-ai{--sc-band:#6133a2}.sc-iot{--sc-band:#086675}
+.sc-scene{background:radial-gradient(ellipse at 110% 0%,var(--sc-glow),transparent 65%),#071525}.sc-grid{opacity:.18}.sc-orbit{opacity:.08}.sc-scene-icon{opacity:.08;right:-40px;top:110px}
+.sc-slide{padding:32px 30px 20px;min-height:355px}.sc-label{font-weight:700;letter-spacing:2.7px;margin-bottom:25px;color:#8faec5}.sc-small-icon{display:none}.sc-slide h3{font-size:clamp(36px,3.6vw,56px);line-height:1.12;font-weight:800;letter-spacing:-1.6px;margin:0 0 23px;max-width:100%;overflow-wrap:anywhere}.sc-slide h3 span{background:var(--sc-band);padding:0 4px 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}.sc-description{font-size:15px;line-height:1.7;max-width:440px}.sc-details{margin:14px 0 20px}.sc-link{font-size:12px}
+@media(max-width:850px){.service-carousel{min-height:400px}.sc-slide{min-height:335px}.sc-slide h3{font-size:46px}}
+@media(max-width:650px){.service-carousel{min-height:390px}.sc-slide{padding:28px 24px 20px;min-height:325px}.sc-slide h3{font-size:40px;letter-spacing:-1.3px}.sc-description{font-size:14px}}
+@media(max-width:400px){.sc-slide{padding:26px 20px 18px}.sc-slide h3{font-size:35px}.sc-description{font-size:13px}}
