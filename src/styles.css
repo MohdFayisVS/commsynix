@@ -47,3 +47,11 @@ h1.mp-band-heading>span{display:inline;background:var(--title-band);color:#fff;p
 h1.mp-band-heading>.mp-band-accent{background:var(--title-accent)}
 .mp-contact-heading{padding-bottom:30px}
 @media(max-width:650px){h1.mp-band-heading{font-size:clamp(34px,9vw,44px);line-height:1.22;letter-spacing:-1.2px}}
+
+/* Separate wrapped title bands so neighboring lines never merge. */
+h1.mp-band-heading{line-height:1.42;margin-bottom:30px}
+h1.mp-band-heading>span{padding:.025em .09em .055em}
+.sc-slide h3{line-height:1.42;margin-bottom:22px}
+.sc-slide h3 span{padding:.025em .09em .055em}
+.mp-page-hero-grid>div,.hero-grid>div{min-width:0}
+@media(max-width:650px){h1.mp-band-heading{line-height:1.42;margin-bottom:24px}.sc-slide h3{line-height:1.42}}
