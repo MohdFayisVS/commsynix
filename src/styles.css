@@ -35,3 +35,15 @@
 @media(max-width:850px){.service-carousel{min-height:400px}.sc-slide{min-height:335px}.sc-slide h3{font-size:46px}}
 @media(max-width:650px){.service-carousel{min-height:390px}.sc-slide{padding:28px 24px 20px;min-height:325px}.sc-slide h3{font-size:40px;letter-spacing:-1.3px}.sc-description{font-size:14px}}
 @media(max-width:400px){.sc-slide{padding:26px 20px 18px}.sc-slide h3{font-size:35px}.sc-description{font-size:13px}}
+
+/* Brand-colored title bands across public page headers. */
+.mp-page-hero,.mp-home-hero,.mp-contact-heading{--title-band:#0642b5;--title-accent:#07677b}
+.mp-page-hero.violet{--title-band:#6133a2}
+.mp-page-hero.teal{--title-band:#086675}
+.mp-page-hero.gold{--title-band:#805413}
+.mp-page-hero.pink{--title-band:#972058}
+h1.mp-band-heading{font-weight:800;line-height:1.2;letter-spacing:-2px;white-space:pre-line;overflow-wrap:break-word}
+h1.mp-band-heading>span{display:inline;background:var(--title-band);color:#fff;padding:0 .07em .04em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+h1.mp-band-heading>.mp-band-accent{background:var(--title-accent)}
+.mp-contact-heading{padding-bottom:30px}
+@media(max-width:650px){h1.mp-band-heading{font-size:clamp(34px,9vw,44px);line-height:1.22;letter-spacing:-1.2px}}
