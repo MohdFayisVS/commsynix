@@ -1,0 +1,19 @@
+{
+  "name": "commsynix",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-10-13",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "commsynix-cms",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "commsynix-media"
+    }
+  ]
+}
