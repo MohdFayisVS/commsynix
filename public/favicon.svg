@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="10" fill="#1E2329"/>
-  <path d="M50 16c-4-5-10-8-18-8C18 8 8 18 8 32s10 24 24 24c8 0 14-3 18-8" stroke="#8FAFBE" stroke-width="4" stroke-linecap="round"/>
-  <path d="M40 22c-3-2-7-3-10-2-5 2-6 8-2 11l8 4c4 2 3 8-2 10-3 1-7 0-10-2" stroke="#7DD3DB" stroke-width="3.5" stroke-linecap="round"/>
-  <circle cx="50" cy="16" r="3" fill="#7DD3DB"/>
-  <circle cx="50" cy="48" r="3" fill="#7DD3DB"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="130 620 330 330" fill="none"><defs><linearGradient id="brand" x1="170" y1="655" x2="395" y2="890" gradientUnits="userSpaceOnUse"><stop stop-color="#0064ff"/><stop offset="1" stop-color="#00cde2"/></linearGradient></defs><g stroke="url(#brand)" stroke-linecap="round" stroke-linejoin="round"><path d="M352 662H272C205 662 154 710 154 774C154 838 196 884 262 884H328C352 884 372 871 372 850C372 829 351 817 328 817H268C238 817 217 798 217 774C217 748 237 726 268 726H432" stroke-width="21"/><path d="M286 774H390" stroke-width="7"/></g><circle cx="432" cy="726" r="16" fill="url(#brand)"/><circle cx="390" cy="774" r="11" fill="url(#brand)"/></svg>
