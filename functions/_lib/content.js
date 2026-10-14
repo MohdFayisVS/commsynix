@@ -1,4 +1,5 @@
 export const defaults = {
+    "elvKicker": "SECURITY. VISIBILITY. CONTROL.", "elvTitle": "Protect your spaces.\nConnect every system.", "elvText": "Integrated extra-low-voltage systems for safer, more connected buildings\u2014from surveillance and access control to intercoms and intelligent monitoring.", "elvFeature1": "CCTV & video surveillance", "elvFeature2": "Access control & intercom", "elvFeature3": "ANPR & security integration", "avKicker": "EXPERIENCES THAT SOUND AND LOOK BETTER", "avTitle": "Bring every message\nand moment to life.", "avText": "Audio-visual systems that connect people through clear sound, engaging displays, intuitive control, and better meeting experiences.", "avFeature1": "Professional audio & PA", "avFeature2": "Video walls & digital signage", "avFeature3": "Meeting rooms & AV control",
     "heroTitle": "Intelligent systems.",
     "heroAccent": "Connected possibilities.",
     "heroText": "Technology that brings people, spaces, and ideas together. From IT and AV to AI, IoT, and smart mobility—built around your needs.",
@@ -77,6 +78,7 @@ export const defaults = {
     ]
 };
 export const contentLabels = {
+    "elvKicker": "ELV Kicker", "elvTitle": "ELV Title", "elvText": "ELV Text", "elvFeature1": "ELV Feature1", "elvFeature2": "ELV Feature2", "elvFeature3": "ELV Feature3", "avKicker": "AV Kicker", "avTitle": "AV Title", "avText": "AV Text", "avFeature1": "AV Feature1", "avFeature2": "AV Feature2", "avFeature3": "AV Feature3",
     "heroTitle": "Banner heading",
     "heroAccent": "Banner second line",
     "heroText": "Banner description",
