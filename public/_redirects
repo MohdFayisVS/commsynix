@@ -6,4 +6,3 @@
 /portfolio /#projects 301
 /services /#services 301
 /services/* /#services 301
-/admin/* /index.html 200
