@@ -1,8 +1,8 @@
 /admin-portal /admin 301
 /admin-portal-login /admin 301
-/about /#about 301
-/contact /#contact 301
-/quote /#contact 301
-/portfolio /#projects 301
-/services /#services 301
-/services/* /#services 301
+/services/advanced-av /av 301
+/services/elv-systems /elv 301
+/services/it-infrastructure /services#it 301
+/services/smart-automation /iot 301
+/portfolio /projects 301
+/quote /contact 301
