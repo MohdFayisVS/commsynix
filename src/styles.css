@@ -81,3 +81,10 @@ h1.mp-band-heading>span{padding:.025em .09em .055em}
 .mp-simple-intro h1{font-size:clamp(34px,3.2vw,48px);line-height:1.15;font-weight:600;letter-spacing:-1.3px;margin:0 0 18px;color:#071525}
 .mp-simple-intro p{font-size:16px;line-height:1.8;color:#5d7283;max-width:750px;margin:0}
 @media(max-width:650px){.mp-simple-header{padding:24px 6% 35px}.mp-simple-header .mp-breadcrumb{margin-bottom:28px}.mp-simple-intro h1{font-size:34px;letter-spacing:-1px}.mp-simple-intro p{font-size:14px}}
+
+/* Main-logo descriptor follows the bold, extended mobility lettering style. */
+.brand>span{font-family:"Arial Black",Arial,Helvetica,sans-serif;font-weight:800;font-stretch:expanded;font-size:9px;letter-spacing:2.7px;line-height:1.2}
+.mp-panel-brand>span{font-size:9px;font-weight:800;letter-spacing:2.7px}
+.mp-footer .mp-footer-logo>span{font-size:9px;font-weight:800;letter-spacing:2.7px}
+.mp-connected-core .mp-panel-brand>span{font-size:8px;font-weight:800;letter-spacing:2px}
+@media(max-width:650px){.mp-header .brand>span{font-size:8px;letter-spacing:2.2px}.mp-connected-core .mp-panel-brand>span{font-size:7px;letter-spacing:1.7px}}
