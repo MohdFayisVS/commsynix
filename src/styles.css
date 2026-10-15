@@ -64,3 +64,10 @@ h1.mp-band-heading>span{padding:.025em .09em .055em}
 .mp-cta::before{opacity:.09}.mp-cta::after{opacity:.05}
 @media(max-width:650px){.mp-page-hero::before,.mp-home-hero::before,.mp-contact-heading::before,.mp-cta::before{-webkit-mask-size:auto 75%;mask-size:auto 75%;-webkit-mask-position:75% bottom;mask-position:75% bottom;opacity:.09}.mp-page-hero::after,.mp-home-hero::after,.mp-contact-heading::after,.mp-cta::after{background-size:26px 26px;opacity:.07}}
 @media(forced-colors:active){.mp-page-hero::before,.mp-page-hero::after,.mp-home-hero::before,.mp-home-hero::after,.mp-contact-heading::before,.mp-contact-heading::after,.mp-cta::before,.mp-cta::after{display:none}}
+
+/* Smart Mobility's emerald identity. */
+.mp-brand-card.mobility{background:linear-gradient(145deg,#e8faf2,#f5fcf8);border-color:#b4ddcb}
+.mp-brand-card.mobility>span{color:#08734e}
+.mp-mobility-emblem img{height:auto;max-height:210px}
+.sc-mobility-logo{display:inline-flex;align-items:center;background:#fff;border-radius:6px;padding:10px 14px;margin-bottom:18px;width:min(100%,290px)}
+.sc-mobility-logo img{display:block;width:100%;height:auto}
