@@ -10,5 +10,12 @@
       "/api/*"
     ]
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "commsynix-cms",
+      "database_id": "e1faff13-7889-41a3-8433-c8c58aabf94f"
+    }
+  ],
   "keep_vars": true
 }
