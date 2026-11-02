@@ -30,15 +30,13 @@ export async function onRequestPost({ request, env }) {
                 throw Error('Enter valid contact phone numbers.');
         if (next.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(next.email))
             throw Error('Enter a valid email address.');
-        if (next.heroImage && !/^project-[a-zA-Z0-9-]+$/.test(next.heroImage))
+        if (next.heroImage && !(/^project-[a-zA-Z0-9-]+$/.test(next.heroImage) || /^\/media\/[a-zA-Z0-9/_-]+\.(png|jpe?g|webp)$/i.test(next.heroImage)))
             throw Error('Invalid banner');
         const image = form.get('banner');
         if (image instanceof File && image.size) {
             if (!['image/png', 'image/jpeg', 'image/webp'].includes(image.type) || image.size > 5 * 1024 * 1024)
                 throw Error('Banner must be JPG, PNG or WebP under 5 MB.');
-            const key = 'project-' + crypto.randomUUID();
-            await env.BUCKET.put(key, await image.arrayBuffer(), { httpMetadata: { contentType: image.type } });
-            next.heroImage = key;
+            throw Error('Upload the image to GitHub public/media, then enter its /media/... path in the banner field.');
         }
         await env.DB.prepare('INSERT INTO site_content (id,value) VALUES (?,?) ON CONFLICT(id) DO UPDATE SET value=excluded.value').bind('main', JSON.stringify(next)).run();
         return Response.json({ ok: true, content: next });
