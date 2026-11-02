@@ -52,3 +52,7 @@ Homepage section text, service cards, banner, contact numbers/email/address, sec
 - https://developers.cloudflare.com/pages/functions/bindings/
 - https://developers.cloudflare.com/pages/functions/routing/
 - https://developers.cloudflare.com/pages/configuration/build-configuration/
+
+## Free image hosting through GitHub
+
+Upload JPG, PNG or WebP files to `public/media/` in this repository using GitHub's **Add file → Upload files**, then commit to `main`. Wait for Cloudflare to deploy the commit. In the admin dashboard enter the image path, for example `/media/banner.webp` or `/media/site-project.webp`, and save. Do not use an external URL. This workflow does not require R2. Images are not uploaded from the admin form; GitHub commits are required for new image files. Existing R2 media keys remain supported only if an R2 binding already exists.
